@@ -1,0 +1,35 @@
+services:
+  backend:
+    image: node:22
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - ./backend:/app
+      - ./backend/node_modules/:/app/node_modules
+    ports:
+      - "5170:5170"
+    environment:
+      - NODE_ENV=development
+      - PORT=5170
+    networks:
+      - app-network
+
+  frontend:
+    image: node:22
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host"
+    volumes:
+      - ./frontend:/app
+      - ./frontend/node_modules:/app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
