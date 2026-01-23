@@ -100,7 +100,9 @@ quit`.trim();
     const input = `4
 move 3 onto 1
 quit`;
-    const response = await request(app).post('/blocks/solve').send({ text: input });
+    let response = await request(app)
+      .post('/blocks/solve')
+          .send({ text: input });
 
     expect(response.headers['content-type']).toMatch(/json/);
   });
