@@ -6,7 +6,7 @@ test.describe('Technical Test App E2E', () => {
 
     await expect(page.getByRole('heading', { name: 'Technical Test App' })).toBeVisible();
 
-    let textarea = page.getByPlaceholder('Type something...');
+    const textarea = page.getByPlaceholder('Type something...');
     await expect(textarea).toBeVisible();
 
     // Test with blocks problem input
@@ -18,8 +18,7 @@ quit`;
     await textarea.fill(blocksInput);
 
     // Wait for any response to appear (the solution will vary but should contain numbers and colons)
-    await expect(page.locator('.result'))
-      .toBeVisible({ timeout: 5000 });
+    await expect(page.locator('.result')).toBeVisible({ timeout: 5000 });
 
     // Verify response contains expected format (line with "0:" or similar)
     const response = page.locator('.result pre');
