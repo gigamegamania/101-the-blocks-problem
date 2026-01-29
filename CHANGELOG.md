@@ -2,11 +2,9 @@
 
 All notable changes to this project are documented in this file.
 
-## [Unreleased]
+## UI/UX Improvements
 
-### UI/UX Improvements
-
-#### Layout & Structure
+### Layout & Structure
 - **Two-column layout**: Restructured the application into a two-column grid layout
   - Left column: Input section with textarea, helper text, and quick commands
   - Right column: Output section displaying results
@@ -17,7 +15,7 @@ All notable changes to this project are documented in this file.
   - Ensures "Input:" and "Output:" headings have identical margins and styling
   - Green accent color (#42b883) for visual consistency
 
-#### Input Field Enhancements
+### Input Field Enhancements
 - **Removed redundant label**: Removed "Enter text:" label for cleaner interface
 - **Hover effects**: Added visual feedback on textarea hover
   - Border color changes to medium gray (#999) on hover
@@ -29,7 +27,7 @@ All notable changes to this project are documented in this file.
   - Updated input text color to light gray (#ccc) for improved readability
   - Removed white backgrounds from example code blocks
 
-#### Helper Text & Documentation
+### Helper Text & Documentation
 - **Input format explanation**: Added comprehensive helper text below the input field
   - Explains the expected input format (number of blocks, commands, quit)
   - Includes example input with proper formatting
@@ -40,9 +38,9 @@ All notable changes to this project are documented in this file.
   - Documents that commands where blocks are in the same stack are illegal
   - Helps users understand why certain commands are ignored
 
-### Features
+## Features
 
-#### Quick Command Buttons
+### Quick Command Buttons
 - **Quick command tags**: Added clickable command buttons for faster input
   - Positioned on the right side of the textarea for easy access
   - Includes all valid commands: `move A onto B`, `move A over B`, `pile A onto B`, `pile A over B`, `quit`
@@ -56,7 +54,7 @@ All notable changes to this project are documented in this file.
   - Includes arrow pointer connecting tooltip to button
   - Responsive design that adapts to screen size
 
-#### Illegal Command Detection & Display
+### Illegal Command Detection & Display
 - **Frontend filtering**: Implemented illegal command detection before sending to backend
   - Detects commands where `a = b` (e.g., "move 0 onto 0")
   - Detects commands where blocks are already in the same stack
@@ -76,18 +74,18 @@ All notable changes to this project are documented in this file.
   - Maintains accurate state for detecting illegal commands in subsequent operations
   - Ensures proper detection even when multiple commands affect block positions
 
-### Bug Fixes
+## Bug Fixes
 
-#### Illegal Command Handling
+### Illegal Command Handling
 - **Fixed illegal command execution**: Illegal commands are now completely ignored
   - Previously, illegal commands were partially processed by the backend
   - Now filtered out before sending to backend, ensuring they have zero effect on output
   - Example: "move 0 onto 0" no longer clears block 0's position
   - Output remains unchanged when only illegal commands are entered
 
-### Code Quality
+## Code Quality
 
-#### Documentation & Comments
+### Documentation & Comments
 - **Comprehensive code comments**: Added detailed documentation to `filterIllegalCommands` function
   - Explains why filtering happens in frontend vs backend
   - Documents the two illegal command conditions with examples
@@ -95,21 +93,21 @@ All notable changes to this project are documented in this file.
   - Includes JSDoc comments for function parameters and return values
   - Clarifies command execution flow and state tracking
 
-### Technical Changes
+## Technical Changes
 
-#### Component Architecture
+### Component Architecture
 - **Reusable components**: Created `SectionHeader.vue` component
   - Promotes code reusability and consistency
   - Centralized styling for section headings
   - Easy to maintain and update
 
-#### CSS Improvements
+### CSS Improvements
 - **Removed layout constraints**: Updated `main.css` to allow full-width layout
   - Removed `max-width: 1280px` constraint from `#app`
   - Changed body display from flex to block for proper layout
   - Removed conflicting grid layout on `#app` element
 
-#### State Management
+### State Management
 - **Illegal command tracking**: Enhanced state management for illegal commands
   - Changed from simple string array to object array with command and reason
   - Enables detailed explanations for each illegal command
