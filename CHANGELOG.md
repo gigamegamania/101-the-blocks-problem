@@ -112,3 +112,21 @@ All notable changes to this project are documented in this file.
   - Changed from simple string array to object array with command and reason
   - Enables detailed explanations for each illegal command
   - Improves user understanding of why commands are rejected
+
+## Testing
+
+### E2E Test Coverage
+- **Comprehensive E2E tests**: Added extensive Playwright end-to-end tests
+  - **Layout tests**: Verify two-column layout with Input and Output sections
+  - **Quick command buttons**: Test visibility, clickability, and command insertion functionality
+  - **Tooltip tests**: Verify tooltips appear on hover for quick command buttons
+  - **Illegal command detection**: Test detection and display of illegal commands (a = b and same stack scenarios)
+  - **Multiple illegal commands**: Verify all illegal commands are displayed with explanations
+  - **Input validation**: Test error handling for invalid input formats
+  - **Loading states**: Verify loading indicator appears during API calls
+  - **Empty input handling**: Test placeholder display when input is cleared
+  - **Edge cases**: Test input with only number and quit, multiple illegal commands, etc.
+  - **Helper text**: Verify helper text, examples, and illegal command rules are displayed
+  - **User interactions**: Test hover effects and textarea interactions
+  - **Result display**: Verify successful results and error messages are displayed correctly
+  - Tests ensure all UI features work correctly and provide confidence in application stability
