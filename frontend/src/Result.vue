@@ -22,7 +22,7 @@ defineProps({
 .result > div {
   padding: 1rem;
   border-radius: 4px;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .result .success {
